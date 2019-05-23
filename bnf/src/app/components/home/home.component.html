@@ -1,0 +1,103 @@
+ <div>
+    <div>
+      
+        <input class="form-control" matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+      
+    </div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+              
+    <ng-container   matColumnDef="Name">
+      <th  mat-header-cell *matHeaderCellDef> <b style="color:black;">Name</b>  </th>
+      <td [ngStyle]="calculateStyles(elemento.Color)" style="width:4% !important;"  mat-cell *matCellDef="let elemento"> {{elemento.Name}} </td>
+    </ng-container>
+
+    <ng-container   matColumnDef="grades">
+        <th  mat-header-cell *matHeaderCellDef> <b style="color:black;">Detalles</b>  </th>
+        <td  style="width:3% !important;"  mat-cell *matCellDef="let elemento"> 
+        <button (click)="detalles(elemento.grades, elemento.Name)" class="btn btn-sm btn-success">Detail</button>
+        </td>
+      </ng-container>
+
+    <ng-container matColumnDef="Gender">
+      <th mat-header-cell *matHeaderCellDef> <b style="color:black;">Gender</b>  </th>
+      <td [ngStyle]="calculateStyles(elemento.Color)" style="width:2%" mat-cell *matCellDef="let elemento"> {{elemento.Gender}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Class">
+        <th mat-header-cell *matHeaderCellDef> <b style="color:black;">Class</b>  </th>
+        <td [ngStyle]="calculateStyles(elemento.Color)"  style="width:2%" mat-cell *matCellDef="let elemento"> {{elemento.Class}} </td>
+    </ng-container>
+
+    <ng-container  matColumnDef="Club">
+        <th mat-header-cell *matHeaderCellDef> <b style="color:black; width: 200%">Club </b>  </th>
+        <td [ngStyle]="calculateStyles(elemento.Color)" style="width:2%" mat-cell *matCellDef="let elemento"> {{elemento.Club}} </td>
+    </ng-container>
+  
+    
+    <ng-container matColumnDef="Persona">
+      <th mat-header-cell *matHeaderCellDef><b style="color:black;">Persona</b>  </th>
+      <td [ngStyle]="calculateStyles(elemento.Color)"  style="width:2%" mat-cell *matCellDef="let elemento"> {{elemento.Persona}} </td>
+    </ng-container>
+  
+    
+    <ng-container matColumnDef="Crush">
+            <th mat-header-cell *matHeaderCellDef><b style="color:black;">Crush</b>  </th>
+            <td [ngStyle]="calculateStyles(elemento.Color)" style="width:2%" mat-cell *matCellDef="let elemento"> {{elemento.Crush}} </td>
+    </ng-container>
+
+    <ng-container  matColumnDef="BreastSize">
+        <th mat-header-cell *matHeaderCellDef><b style="color:black;">BreastSize</b>  </th>
+        <td [ngStyle]="calculateStyles(elemento.Color)" style="width:2%" mat-cell *matCellDef="let elemento">  {{elemento.BreastSize}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Strength">
+        <th mat-header-cell *matHeaderCellDef><b style="color:black;">Strength</b>  </th>
+        <td [ngStyle]="calculateStyles(elemento.Color)" style="width:2%" mat-cell *matCellDef="let elemento"> {{elemento.Strength}} </td>
+      </ng-container>
+
+    <ng-container  matColumnDef="Hairstyle">
+    <th mat-header-cell *matHeaderCellDef><b style="color:black;">Hairstyle</b>  </th>
+    <td [ngStyle]="calculateStyles(elemento.Color)" style="width:2%" mat-cell *matCellDef="let elemento"> {{elemento.Hairstyle}}  </td>
+  </ng-container>
+
+  <ng-container  matColumnDef="Stockings">
+    <th mat-header-cell *matHeaderCellDef><b style="color:black;">Stockings</b>  </th>
+    <td [ngStyle]="calculateStyles(elemento.Color)" style="width:2%" mat-cell *matCellDef="let elemento"> {{elemento.Stockings}}  </td>
+  </ng-container>
+
+  <ng-container  matColumnDef="Accessory">
+    <th mat-header-cell *matHeaderCellDef><b style="color:black;">Accessory</b>  </th>
+    <td [ngStyle]="calculateStyles(elemento.Color)" style="width:2%" mat-cell *matCellDef="let elemento"> {{elemento.Accessory}}  </td>
+  </ng-container>
+
+  <ng-container  matColumnDef="ScheduleTime">
+    <th mat-header-cell *matHeaderCellDef><b style="color:black;">ScheduleTime</b>  </th>
+    <td [ngStyle]="calculateStyles(elemento.Color)" style="width:7%" mat-cell *matCellDef="let elemento"> {{elemento.ScheduleTime}}  </td>
+  </ng-container>
+
+  <ng-container  matColumnDef="ScheduleDestination">
+    <th mat-header-cell *matHeaderCellDef><b style="color:black;">ScheduleDestination</b>  </th>
+    <td [ngStyle]="calculateStyles(elemento.Color)" style="width:8%" mat-cell *matCellDef="let elemento"> {{elemento.ScheduleDestination}}  </td>
+  </ng-container>
+
+  <ng-container  matColumnDef="ScheduleAction">
+    <th mat-header-cell *matHeaderCellDef><b style="color:black;">ScheduleAction</b>  </th>
+    <td [ngStyle]="calculateStyles(elemento.Color)" style="width:10%" mat-cell *matCellDef="let elemento"> {{elemento.ScheduleAction}}  </td>
+  </ng-container>
+
+  <ng-container  matColumnDef="Average">
+    <th mat-header-cell *matHeaderCellDef><b style="color:black;">Average</b>  </th>
+    <td  style="width:3%" mat-cell *matCellDef="let elemento">
+        <span style="color:red" *ngIf="3 > elemento.Average">{{elemento.Average}}</span>
+        <span style="color:rgb(218, 221, 45)" *ngIf="elemento.Average >= 3 &&  4 > elemento.Average">{{elemento.Average}}</span>
+        <span style="color:rgb(22, 165, 34)" *ngIf="elemento.Average >= 4 &&  5 >= elemento.Average">{{elemento.Average}}</span>
+    </td>
+  </ng-container>
+      
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>  
+
+

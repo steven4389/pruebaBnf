@@ -1,0 +1,9 @@
+.contenedor{
+    padding: 5%;
+    margin-top:5%; 
+    background-color: whitesmoke;
+     width: 25%;
+     border-color: rgb(184, 182, 182); 
+     border-style: solid;
+     border-width: 1px;
+}
